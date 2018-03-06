@@ -1,3 +1,3 @@
 <?php
-    header("Location: ../index.php?worked=success ");        
+    header("Location: ../index.html?worked=success ");        
 ?>

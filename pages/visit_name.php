@@ -17,11 +17,11 @@
             </form>
             <form>
             </form>
-            <form action="../index.php">
+            <form action="../index.html">
                 <input type="submit" value="Back">
             </form>
             <form action="../includes/button_next.php">
-                <input type="submit" value="Next">
+                <input id="next" type="submit" value="Next">
             </form>
         </div>
     </body>

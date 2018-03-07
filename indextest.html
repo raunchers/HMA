@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="with= device-width">
+    <meta name="description" content="LRU CSC 400 Capstone Project">
+    <meta name="description" contect ="HMA Survey Information">
+    <meta name = "author" content="Yonathan Sorto">
+    <title>HMA Survey | Welcome</title>
+    <link rel= "stylesheet" href="./css/style.css">
+  </head>
+  <body>
+    <header>
+      <div class = "container">
+        <div id = "branding">
+          <H1><span class ="highlight">HMA</span> Questionare</H1>
+        </div>
+        <nav>
+            <ul>
+              <li class ="current"><a href="indextest.html">Survey</a></li>
+              <li><a href="http://hickoryart.org/">HMA</a></li>
+            </ul>
+        </nav>
+      </div>
+
+    </header>
+
+    <section id="showcase">
+      <div class= "container">
+        <h1>We appreciate your submissions</h1>
+        <p>All the Information collected helps HMA with funding. Thank you for your co-operation<p>
+
+<center>
+<!--JAVASCRIPT FOR SURVEY HERE -->
+<form action = "INSERT CONECTION HERE" method = "POST">
+    <table>
+        <tr>
+            <td>Name: </td>
+            <td><input type ="text" name = "name" value = "Guest"/></td>
+        </tr>
+        <tr>
+          <td>Gender:</td>
+          <td>
+            <select>
+                  <option value = "Prefer Not to Say">Prefer Not To Say</option>
+                  <option value = "Male">Male</option>
+                  <option value = "Female">Female</option>
+            </select>
+        </tr>
+        <tr>
+            <td>Email: </td>
+            <td><input type ="text" name = "Email" value = "Guest@hma.com"/></td>
+        </tr>
+        <tr>
+            <td>Age: </td>
+            <td><input type ="number" name = "Age" value = "18"/></td>
+
+        </tr>
+        <tr>
+            <td>Zipcode: </td>
+            <td><input type ="number" name = "Zipcode" value = "28601"/></td>
+        </tr>
+        <tr>
+          <td>Ethnicity:</td>
+          <td>
+            <select>
+                  <option value = "Prefer Not to Say">Prefer Not To Say</option>
+                  <option value = "White">White</option>
+                  <option value = "African American/Black">African American/Black</option>
+                  <option value = "Hispanic/Latino">Hispanic/Latino</option>
+                  <option value = "White">White</option>
+            </select>
+        </tr>
+        <tr>
+
+            <td>Are you a member:</td>
+            <td><input type="checkbox" id="cmember"></td>
+        </tr>
+        <tr>
+            <td>Would you like to be a Member: </td>
+            <td><input type="checkbox" id="pmember"> </td>
+        </tr>
+        <tr>
+        <td><input id="date" type="date" disabled></td>
+      </tr>
+      <tr>
+        <center><td><input type = "Submit" value = "Submit"></td>
+      </tr>
+</form>
+
+</center>
+
+<footer>
+  <tr>
+<td>Hickory Museum Of Art Survey, Copyright &copy; 2018</td>
+<tr>
+</footer>
+  </body>
+</html>
+
+<!-- AUTO DATE -->
+<script>
+(function () {
+    var date = new Date().toISOString().substring(0, 10),
+        field = document.querySelector('#date');
+    field.value = date;
+    console.log(field.value);
+})()
+</script>

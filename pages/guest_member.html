@@ -5,8 +5,10 @@
         <title>Guest Member Status</title>
     </head>
     <body>
-        <input type="text" name="firstName" placeholder="Nemo">
-        <input type="text" name="lastName" placeholder="Outis">
+        <form>
+            <input type="radio" id="guest_member_no" value="No" onclick"isChecked(this.id)">
+            <input type="radio" id="geust_member_yes" value="Yes" onclick"isChecked(this.id)">
+        </form>
         <input type="button" id="guest_member" value="previous" onclick="previousPage(this.id)">
         <input type="button" id="guest_member" value="next" onclick="nextPage(this.id)">
     </body>

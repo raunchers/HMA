@@ -5,8 +5,15 @@
         <title>Guest Ethnicity</title>
     </head>
     <body>
-        <input type="text" name="firstName" placeholder="Nemo">
-        <input type="text" name="lastName" placeholder="Outis">
+
+        <form>
+            <input type="radio" name="guest_ethnicity_white" id="guest_ethnicity_white" value="White" onclick"isChecked(this.id)">
+            <input type="radio" name="guest_ethnicity_african_american" id="guest_ethnicity_african_american" value="African American" onclick"isChecked(this.id)">
+            <input type="radio" name="guest_ethnicity_asian" id="guest_ethnicity_asian" value="Asian" onclick"isChecked(this.id)">
+            <input type="radio" name="guest_ethnicity_american_indian" id="guest_ethnicity_american_indian" value="American Indian" onclick"isChecked(this.id)">
+            <input type="radio" name="guest_ethnicity_other" id="guest_ethnicity_other" value="Other" onclick"isChecked(this.id)">
+            <input type="radio" name="guest_ethnicity_unspecified" id="guest_ethnicity_unspecified" value="Prefer not to say" onclick"isChecked(this.id)">
+        </form>
         <input type="button" id="guest_ethnicity" value="previous" onclick="previousPage(this.id)">
         <input type="button" id="guest_ethnicity" value="next" onclick="nextPage(this.id)">
     </body>

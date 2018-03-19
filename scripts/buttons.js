@@ -14,50 +14,48 @@ function nextPage(clicked_id){
         case "guest_name":
             localStorage.setItem("guest_first_name", document.getElementById("guest_first_name").value);
             localStorage.setItem("guest_last_name", document.getElementById("guest_last_name").value);
-            console.log(localStorage.getItem("guest_first_name"));
-            console.log(localStorage.getItem("guest_last_name"));
             window.location = "guest_gender.html";
             break;
-        case "guest_sex_male":
-            localStorage.setItem("guest_gender","male");
-            window.location = "guest_email.html";
-            break;
-        case "guest_sex_female":
-            localStorage.setItem("guest_gender","female");
-            window.location = "guest_email.html";
-            break;
-        case "guest_sex_unspecified":
-            localStorage.setItem("guest_gender","unspecified");
+        case "guest_gender":
+            if(document.getElementById("guest_sex_male").checked == true){
+                localStorage.setItem("guest_gender","male");
+            }else if(document.getElementById("guest_sex_female").checked == true){
+                localStorage.setItem("guest_gender","female");
+            }else{
+                localStorage.setItem("guest_gender","unspecified");
+            }
             window.location = "guest_email.html";
             break;
         case "guest_email":
-            localStorage.setItem("guest_email","unspecified");
+            localStorage.setItem("guest_email", document.getElementById("guest_email").value);
             window.location = "guest_age.html";
             break;
         case "guest_age":
-            localStorage.setItem("guest_age","unspecified");
+            localStorage.setItem("guest_age", document.getElementById("guest_age_answer").value);
+            console.log(localStorage.getItem("guest_age"));
             window.location = "guest_zip_code.html";
             break;
         case "guest_zip_code":
-            localStorage.setItem("guest_zip_code","unspecified");
+            localStorage.setItem("guest_zip_code", document.getElementById("guest_zip_code_answer").value);
             window.location = "guest_ethnicity.html";
             break;
         case "guest_ethnicity":
-            localStorage.setItem("guest_ethnicity","unspecified");
+            if (document.getElementById("guest_ethnicity_white").checked == true) {
+                localStorage.setItem("guest_ethnicity","White");
+            } else if(document.getElementById("guest_ethnicity_african_american").checked == true) {
+                localStorage.setItem("guest_ethnicity","African American");
+            }else if(document.getElementById("guest_ethnicity_asian").checked == true){
+                localStorage.setItem("guest_ethnicity","Asian");
+            }else if(document.getElementById("guest_ethnicity_american_indian").checked == true){
+                localStorage.setItem("guest_ethnicity","American Indian");
+            }else{
+                localStorage.setItem("guest_ethnicity","other");
+            }
             window.location = "guest_member.html";
             break;
         case "guest_member":
-            localStorage.setItem("guest_member","no");
-            console.log(localStorage.getItem("guest_first_name"));
-            console.log(localStorage.getItem("guest_last_name"));
-            console.log(localStorage.getItem("guest_gender"));
-            console.log(localStorage.getItem("guest_email"));
-            console.log(localStorage.getItem("guest_age"));
-            console.log(localStorage.getItem("guest_zip_code"));
-            console.log(localStorage.getItem("guest_ethnicity"));
-            console.log(localStorage.getItem("guest_member"));
             localStorage.clear();
-            //window.location = "guest_thank_you.html";
+            window.location = "guest_thank_you.html";
             break;
     }
 }
@@ -91,3 +89,4 @@ function previousPage(clicked_id){
             break;
     }
 }
+

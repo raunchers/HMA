@@ -2,12 +2,14 @@
 <html lang="en">
     <head>
         <script src="../scripts/buttons.js"></script>
-        <title>Guest Name</title>
+        <title>Guest Gender</title>
     </head>
     <body>
-        <input type="text" name="firstName" placeholder="Nemo">
-        <input type="text" name="lastName" placeholder="Outis">
+        <form>
+            <input type="radio" name="guest_gender" id="guest_sex_male" value="Male" onclick="nextPage(this.id)">
+            <input type="radio" name="guest_gender" id="guest_sex_female" value="Female" onclick="nextPage(this.id)">
+            <input type="radio" name="guest_gender" id="guest_sex_unspecified" value="Prefer not to say" onclick="nextPage(this.id)">
+        </form>
         <input type="button" id="guest_gender" value="previous" onclick="previousPage(this.id)">
-        <input type="button" id="guest_gender" value="next" onclick="nextPage(this.id)">
     </body>
 </html>

@@ -9,19 +9,20 @@
     if(mysqli_connect_errno()){
       die("Connection failed: " . mysql_connect_error());
     }
-
-    $obj = json_decode($_POST["x"],false);
+    //mysqli_real_escape_string($_POST['x'])
+    $data = mysqli_real_escape_string($_POST['x']);
+    $obj = json_decode($data,false);
 
     //Get JSON data to PHP
-    $firstName = $obj['guest_first_name'];
-    $lastName = $obj['guest_last_name'];
-    $gender = $obj['guest_gender'];
-    $email = $obj['guest_email'];
-    $age = $obj['guest_age'];
-    $zip = $obj['guest_zip_code'];
-    $ethnicity = $obj['guest_ethnicity'];
-    $heard = 'Other';
-    $member = $obj['guest_member'];
+    $firstName = $obj["guest_first_name"];
+    $lastName = $obj["guest_last_name"];
+    $gender = $obj["guest_gender"];
+    $email = $obj["guest_email"];
+    $age = $obj["guest_age"];
+    $zip = $obj["guest_zip_code"];
+    $ethnicity = $obj["guest_ethnicity"];
+    $heard = "Other";
+    $member = $obj["guest_member"];
 
     //SQL Query to insert data.
     $stmt = "INSERT INTO visitors (GUEST_FIRST_NAME,GUEST_LAST_NAME,GUEST_AGE,GUEST_ZIP_CODE,GUEST_ETHNICITY,GUEST_HEARD,GUEST_MEMBER) 

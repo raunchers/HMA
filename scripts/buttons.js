@@ -12,15 +12,15 @@ function nextPage(clicked_id){
             window.location = "pages/guest_name.html";
             break;
         case "guest_name":
-            localStorage.setItem("guest_first_name", JSON.stringify(document.getElementById("guest_first_name").value));
-            localStorage.setItem("guest_last_name", JSON.stringify(document.getElementById("guest_last_name").value));
+            localStorage.setItem("guest_first_name", document.getElementById("guest_first_name").value);
+            localStorage.setItem("guest_last_name", document.getElementById("guest_last_name").value);
             window.location = "guest_gender.html";
             break;
         case "guest_gender":
             if(document.getElementById("guest_sex_male").checked == true){
                 localStorage.setItem("guest_gender", "male");
             }else if(document.getElementById("guest_sex_female").checked == true){
-                JSON.stringify(localStorage.setItem("guest_gender","female"));
+                localStorage.setItem("guest_gender","female");
             }else{
                 localStorage.setItem("guest_gender","unspecified");
             }
@@ -109,4 +109,5 @@ function setDB(){
     xmlhttp.open("POST", "../includes/dbh.php", true);
     xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
     xmlhttp.send("x=" + dbParam);
+    console.log(surveyObj);
 }

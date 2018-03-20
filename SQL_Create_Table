@@ -1,0 +1,27 @@
+create table visitors(
+    VISIT_ID int(20) not null PRIMARY KEY AUTO_INCREMENT,
+    VISIT_FIRST_NAME varchar(30) not null,
+    VISIT_LAST_NAME varchar(30) not null,
+    VISIT_ZIP_CODE varchar(10) not null,
+    VISIT_ETHNICITY varchar(20) not null,
+    VISIT_HEARD varchar(200) not null,
+    VISIT_DATE date not null
+);
+
+
+insert into users (username, pass, date) VALUES ('admin','password', '2018-03-03 `18:01:01');
+
+select * from users *****select everything from users table*****
+
+select * from users where id='1' AND username='admin'
+
+***Updating existing data in table users***
+UPDATE users
+SET username='Test Update SQL', pass='Changed'
+WHERE id='2'
+
+DELETE FROM users
+WHERE id='3'
+
+SELECT * FROM users
+ORDER BY id ASC

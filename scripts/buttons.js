@@ -56,10 +56,8 @@ function nextPage(clicked_id){
         case "guest_member":
             //Call function that reads localstorage, sets the values to variables in PHP and then commits to the DB
             if (document.getElementById("guest_member_yes").checked == true){
-                alert("Yes worked");
                 localStorage.setItem("guest_member","Y");
             } else{
-                alert("No worked");
                 localStorage.setItem("guest_member","N");
             }
             //window.location = "guest_thank_you.html";
@@ -100,9 +98,15 @@ function previousPage(clicked_id){
 
 //Reads localstorage for user input --> sets localstorage to PHP variables --> commits the information to the DB
 function setDB(){
-    //Pull variables from local storage
+    //JS obj of survey answers
     var surveyObj = {guest_first_name: localStorage.getItem("guest_first_name"), guest_last_name: localStorage.getItem("guest_last_name"),
-                    guest_gender: localStorage.getItem("guest_gender"), guest_email: localStorage.getItem("guest_email"), guest_age: localStorage.getItem("guest_age"),
-                    guest_zip_code: localStorage.getItem("guest_zip_code"), guest_ethnicity: localStorage.getItem("guest_ethnicity"), guest_member: localStorage.getItem("guest_member")};
-    localStorage.clear();
+                     guest_gender: localStorage.getItem("guest_gender"), guest_email: localStorage.getItem("guest_email"), guest_age: localStorage.getItem("guest_age"),
+                     guest_zip_code: localStorage.getItem("guest_zip_code"), guest_ethnicity: localStorage.getItem("guest_ethnicity"), guest_member: localStorage.getItem("guest_member")};
+    //Convert to JSON
+    var dbParam = JSON.stringify(surveyObj);
+    //Open connection with DB
+    var xmlhttp = new XMLHttpRequest();
+    xmlhttp.open("POST", "../includes/dbh.php", true);
+    xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+    xmlhttp.send("x=" + dbParam);
 }

@@ -4,15 +4,28 @@
     $userName = "root";
     $password = "";
     $dbName = "hma";
-    echo "Working";
-    //$conn = mysqli_connect($serverName, $userName, $password, $dbName);
+    
+    $conn = mysqli_connect($serverName, $userName, $password, $dbName);
+    if(mysqli_connect_errno()){
+      die("Connection failed: " . mysql_connect_error());
+    }
 
-   // if($conn->connect_error){
-        //echo 'Database connection error';
-   // }
+    $obj = json_decode($_POST["x"],false);
 
-     //SQL Query to insert data.
-    //$stmt = $con->prepare("INSERT INTO visitors (GUEST_ID,GUEST_FIRST_NAME,GUEST_LAST_NAME,GUEST_AGE,GUEST_ZIP_CODE,GUEST_ETHNICITY,GUEST_HEARD,GUEST_MEMBER)
-                                        // VALUES (GUEST_ID,GUEST_FIRST_NAME,GUEST_LAST_NAME,GUEST_AGE,GUEST_ZIP_CODE,GUEST_ETHNICITY,GUEST_HEARD,GUEST_MEMBER)") //variables go here;
+    //Get JSON data to PHP
+    $firstName = $obj['guest_first_name'];
+    $lastName = $obj['guest_last_name'];
+    $gender = $obj['guest_gender'];
+    $email = $obj['guest_email'];
+    $age = $obj['guest_age'];
+    $zip = $obj['guest_zip_code'];
+    $ethnicity = $obj['guest_ethnicity'];
+    $heard = 'Other';
+    $member = $obj['guest_member'];
 
+    //SQL Query to insert data.
+    $stmt = "INSERT INTO visitors (GUEST_FIRST_NAME,GUEST_LAST_NAME,GUEST_AGE,GUEST_ZIP_CODE,GUEST_ETHNICITY,GUEST_HEARD,GUEST_MEMBER) 
+    VALUES('michael','$lastName','$gender','$email','$age','$zip','$ethnicity', '$heard', '$member')"; //variables go here
+    mysqli_query($conn,$stmt);
+    mysqli_close($conn);
 ?>

@@ -12,15 +12,15 @@ function nextPage(clicked_id){
             window.location = "pages/guest_name.html";
             break;
         case "guest_name":
-            localStorage.setItem("guest_first_name", document.getElementById("guest_first_name").value);
-            localStorage.setItem("guest_last_name", document.getElementById("guest_last_name").value);
+            localStorage.setItem("guest_first_name", JSON.stringify(document.getElementById("guest_first_name").value));
+            localStorage.setItem("guest_last_name", JSON.stringify(document.getElementById("guest_last_name").value));
             window.location = "guest_gender.html";
             break;
         case "guest_gender":
             if(document.getElementById("guest_sex_male").checked == true){
-                localStorage.setItem("guest_gender","male");
+                localStorage.setItem("guest_gender", "male");
             }else if(document.getElementById("guest_sex_female").checked == true){
-                localStorage.setItem("guest_gender","female");
+                JSON.stringify(localStorage.setItem("guest_gender","female"));
             }else{
                 localStorage.setItem("guest_gender","unspecified");
             }
@@ -101,18 +101,8 @@ function previousPage(clicked_id){
 //Reads localstorage for user input --> sets localstorage to PHP variables --> commits the information to the DB
 function setDB(){
     //Pull variables from local storage
-    var firstName = localStorage.getItem("guest_first_name").value;
-    var lastName = localStorage.getItem("guest_last_name").value;
-    var gender = localStorage.getItem("guest_gender").value;
-    var email = localStorage.getItem("guest_email").value;
-    var age = localStorage.getItem("guest_age").value;
-    var zip = localStorage.getItem("guest_zip_code").value;
-    var ethnicity = localStorage.getItem("guest_ethnicity").value;
-    var member = localStorage.getItem("guest_member").value;
-
-    alert("Before posting to PHP");
-    //Post variables to PHP
-    $.post('dbh.php', {postfirstName:firstName, postlastName:lastName, postgender:gender, postemail:email, postage:age,
-                                            postzip:zip, postethnicity:ethnicity, postmember:member}, function(data){ $("#test").html(data);});
+    var surveyObj = {guest_first_name: localStorage.getItem("guest_first_name"), guest_last_name: localStorage.getItem("guest_last_name"),
+                    guest_gender: localStorage.getItem("guest_gender"), guest_email: localStorage.getItem("guest_email"), guest_age: localStorage.getItem("guest_age"),
+                    guest_zip_code: localStorage.getItem("guest_zip_code"), guest_ethnicity: localStorage.getItem("guest_ethnicity"), guest_member: localStorage.getItem("guest_member")};
     localStorage.clear();
 }

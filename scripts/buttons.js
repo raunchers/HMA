@@ -54,8 +54,16 @@ function nextPage(clicked_id){
             window.location = "guest_member.html";
             break;
         case "guest_member":
-            localStorage.clear();
-            window.location = "guest_thank_you.html";
+            //Call function that reads localstorage, sets the values to variables in PHP and then commits to the DB
+            if (document.getElementById("guest_member_yes").checked == true){
+                alert("Yes worked");
+                localStorage.setItem("guest_member","Y");
+            } else{
+                alert("No worked");
+                localStorage.setItem("guest_member","N");
+            }
+            //window.location = "guest_thank_you.html";
+            setDB();
             break;
     }
 }
@@ -90,4 +98,21 @@ function previousPage(clicked_id){
     }
 }
 
+//Reads localstorage for user input --> sets localstorage to PHP variables --> commits the information to the DB
+function setDB(){
+    //Pull variables from local storage
+    var firstName = localStorage.getItem("guest_first_name").value;
+    var lastName = localStorage.getItem("guest_last_name").value;
+    var gender = localStorage.getItem("guest_gender").value;
+    var email = localStorage.getItem("guest_email").value;
+    var age = localStorage.getItem("guest_age").value;
+    var zip = localStorage.getItem("guest_zip_code").value;
+    var ethnicity = localStorage.getItem("guest_ethnicity").value;
+    var member = localStorage.getItem("guest_member").value;
 
+    alert("Before posting to PHP");
+    //Post variables to PHP
+    $.post('dbh.php', {postfirstName:firstName, postlastName:lastName, postgender:gender, postemail:email, postage:age,
+                                            postzip:zip, postethnicity:ethnicity, postmember:member}, function(data){ $("#test").html(data);});
+    localStorage.clear();
+}

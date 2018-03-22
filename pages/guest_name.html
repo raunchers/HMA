@@ -2,12 +2,30 @@
 <html lang="en">
     <head>
         <script src="../scripts/buttons.js"></script>
+		<link rel="stylesheet" href="../styles/styles.css">
         <title>Guest Name</title>
     </head>
     <body>
-        <input type="text" id="guest_first_name" placeholder="Nemo">
-        <input type="text" id="guest_last_name" placeholder="Outis">
-        <input type="button" name="guest_name" id="guest_name" value="previous" onclick="previousPage(this.id)">
-        <input type="button" name="guest_name" id="guest_name" value="next" onclick="nextPage(this.id)">
+        <div class="questions">
+			<div class="firstN">
+				<label for="first">First Name<br></label>
+				<input type="text" name="first" id="guest_first_name" placeholder="Nemo">
+			</div>
+			<div class="lastN">
+				<label for="last">Last Name<br></label>
+				<input type="text" name="last" id="guest_last_name" placeholder="Outis">
+			</div>
+			<div class="buttons">
+				<div class="nextButton">
+					<input type="button" id="guest_name" value="previous" onclick="previousPage(this.id)">
+				</div>
+				<div class="pageCount">
+					<p>1/10</p>
+				</div>
+				<div class="prevButton">
+					<input type="button" id="guest_name" value="next" onclick="nextPage(this.id)">
+				</div>
+			</div>
+		</div>
     </body>
 </html>

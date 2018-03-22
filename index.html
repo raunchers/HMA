@@ -6,12 +6,18 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
+		<link rel="stylesheet" href="styles/styles.css">
         <title>Welcome</title>
     </head>
     <body>
-        <head>This page will have the HMA welcome message. 
-            The button at the bottom will start the survey.
-        </head>
-        <input type="button" id="index" value="next" onclick="nextPage(this.id)">
+        <div class="questions">
+			<p>
+				This page will have the HMA welcome message. 
+				The button at the bottom will start the survey.
+			</p>
+			<div class="buttons">
+				<input type="button" id="index" value="next" onclick="nextPage(this.id)">
+			</div>
+		</div>
     </body>
 </html>

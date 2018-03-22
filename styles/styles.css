@@ -1,0 +1,28 @@
+/* CSS Document */
+*{
+	margin: 0;
+	padding: 0;
+}
+body{
+	background: #4033E9;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-flow: column;
+	min-height: 100%;
+}
+.questions{
+	align-items: center;
+	justify-content: center;
+	background:rgba(58,63,68,0.5);
+	border-radius: 5px;
+	box-shadow: 0 1.5px 0 0 rgba(0,0,0,0.1);
+	width:450px;
+	display: flex;  
+	flex-direction: column;
+}
+
+.buttons{
+	display: flex;
+	flex-direction: row;
+}

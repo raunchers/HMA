@@ -9,24 +9,29 @@
     if(mysqli_connect_errno()){
       die("Connection failed: " . mysql_connect_error());
     }
-    //mysqli_real_escape_string($_POST['x'])
-    $data = mysqli_real_escape_string($_POST['x']);
-    $obj = json_decode($data,false);
+
+    //Test if data came through
+    if(isset($_POST["answers"])){
+      //decone JSON
+      $surAnswers = json_decode($_POST["answers"]);
+    }
 
     //Get JSON data to PHP
-    $firstName = $obj["guest_first_name"];
-    $lastName = $obj["guest_last_name"];
-    $gender = $obj["guest_gender"];
-    $email = $obj["guest_email"];
-    $age = $obj["guest_age"];
-    $zip = $obj["guest_zip_code"];
-    $ethnicity = $obj["guest_ethnicity"];
+    $firstName = $surAnswers->{'firstN'};
+    $lastName = $surAnswers->{'lastN'};
+    $gender = $surAnswers->{'gender'};
+    $email = $surAnswers->{'email'};
+    $zip = $surAnswers->{'zip'};
+    $ethnicity = $surAnswers->{'ethnicity'};
     $heard = "Other";
-    $member = $obj["guest_member"];
+    $member = $surAnswers->{'member'};
 
     //SQL Query to insert data.
-    $stmt = "INSERT INTO visitors (GUEST_FIRST_NAME,GUEST_LAST_NAME,GUEST_AGE,GUEST_ZIP_CODE,GUEST_ETHNICITY,GUEST_HEARD,GUEST_MEMBER) 
-    VALUES('michael','$lastName','$gender','$email','$age','$zip','$ethnicity', '$heard', '$member')"; //variables go here
+    $stmt = "INSERT INTO visitors (GUEST_FIRST_NAME,GUEST_LAST_NAME,GUEST_ZIP_CODE,GUEST_ETHNICITY,GUEST_HEARD,GUEST_MEMBER) 
+    VALUES('$firstName','$lastName','$zip','$ethnicity','$heard','$member')"; //variables go here
     mysqli_query($conn,$stmt);
     mysqli_close($conn);
+
+    //,'$gender','$email','$ethnicity'
+    
 ?>

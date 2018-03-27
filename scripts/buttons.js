@@ -28,11 +28,6 @@ function nextPage(clicked_id){
             break;
         case "guest_email":
             localStorage.setItem("guest_email", document.getElementById("guest_email").value);
-            window.location = "guest_age.html";
-            break;
-        case "guest_age":
-            localStorage.setItem("guest_age", document.getElementById("guest_age_answer").value);
-            console.log(localStorage.getItem("guest_age"));
             window.location = "guest_zip_code.html";
             break;
         case "guest_zip_code":
@@ -81,11 +76,8 @@ function previousPage(clicked_id){
         case "guest_email":
             window.location = "guest_gender.html";
             break;
-        case "guest_age":
-            window.location = "guest_email.html";
-            break;
         case "guest_zip_code":
-            window.location = "guest_age.html";
+            window.location = "guest_email.html";
             break;
         case "guest_ethnicity":
             window.location = "guest_zip_code.html";
@@ -99,15 +91,15 @@ function previousPage(clicked_id){
 //Reads localstorage for user input --> sets localstorage to PHP variables --> commits the information to the DB
 function setDB(){
     //JS obj of survey answers
-    var surveyObj = {guest_first_name: localStorage.getItem("guest_first_name"), guest_last_name: localStorage.getItem("guest_last_name"),
-                     guest_gender: localStorage.getItem("guest_gender"), guest_email: localStorage.getItem("guest_email"), guest_age: localStorage.getItem("guest_age"),
-                     guest_zip_code: localStorage.getItem("guest_zip_code"), guest_ethnicity: localStorage.getItem("guest_ethnicity"), guest_member: localStorage.getItem("guest_member")};
-    //Convert to JSON
-    var dbParam = JSON.stringify(surveyObj);
-    //Open connection with DB
-    var xmlhttp = new XMLHttpRequest();
-    xmlhttp.open("POST", "../includes/dbh.php", true);
-    xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-    xmlhttp.send("x=" + dbParam);
+    var surveyObj = {};
+        surveyObj ={firstN: localStorage.getItem("guest_first_name"), lastN: localStorage.getItem("guest_last_name"), gender: localStorage.getItem("guest_gender"),
+                    email: localStorage.getItem("guest_email"), zip: localStorage.getItem("guest_zip_code"), ethnicity: localStorage.getItem("guest_ethnicity"), 
+                    member: localStorage.getItem("guest_member")};
+    //Send to PHP
+    $.ajax({
+        url: '../includes/dbh.php',
+        type: 'post',
+        data: {"answers" : JSON.stringify(surveyObj)}
+    });
     console.log(surveyObj);
 }

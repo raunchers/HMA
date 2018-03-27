@@ -1,11 +1,16 @@
-create table visitors(
-    VISIT_ID int(20) not null PRIMARY KEY AUTO_INCREMENT,
-    VISIT_FIRST_NAME varchar(30) not null,
-    VISIT_LAST_NAME varchar(30) not null,
-    VISIT_ZIP_CODE varchar(10) not null,
-    VISIT_ETHNICITY varchar(20) not null,
-    VISIT_HEARD varchar(200) not null,
-    VISIT_DATE date not null
+create table guest(
+    GUEST_ID int(20) not null PRIMARY KEY AUTO_INCREMENT,
+    GUEST_FIRST_NAME varchar(100) not null,
+    GUEST_LAST_NAME varchar(20) not null,
+    GUEST_GENDER varchar(10) not null,
+    GUEST_ETHNICITY varchar(20) not null,
+    GUEST_ZIP_CODE varchar(10) not null,
+    GUEST_ADULT_COUNT varchar(10) not null,
+    GUEST_CHILD_COUNT varchar(10) not null,
+    GUEST_HEARD varchar(200) not null,
+    GUEST_MEMBER varchar(10) not null,
+    GUEST_EMAIL varchar(20) not null,
+    GUEST_DATE date not null
 );
 
 

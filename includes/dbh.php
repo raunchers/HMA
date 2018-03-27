@@ -27,11 +27,11 @@
     $member = $surAnswers->{'member'};
 
     //SQL Query to insert data.
-    $stmt = "INSERT INTO visitors (GUEST_FIRST_NAME,GUEST_LAST_NAME,GUEST_ZIP_CODE,GUEST_ETHNICITY,GUEST_HEARD,GUEST_MEMBER) 
+    $stmt = "INSERT INTO guest (GUEST_FIRST_NAME,GUEST_LAST_NAME,GUEST_ZIP_CODE,GUEST_ETHNICITY,GUEST_HEARD,GUEST_MEMBER) 
     VALUES('$firstName','$lastName','$zip','$ethnicity','$heard','$member')"; //variables go here
     mysqli_query($conn,$stmt);
     mysqli_close($conn);
 
-    //,'$gender','$email','$ethnicity'
+    //,'$gender','$email'
     
 ?>

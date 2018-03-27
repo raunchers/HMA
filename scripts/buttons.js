@@ -16,6 +16,9 @@ function nextPage(clicked_id){
             localStorage.setItem("guest_last_name", document.getElementById("guest_last_name").value);
             window.location = "guest_gender.html";
             break;
+        case "org_name":
+            localStorage.setItem("org_name", document.getElementById("org_name").value);
+            break;
         case "guest_gender":
             if(document.getElementById("guest_sex_male").checked == true){
                 localStorage.setItem("guest_gender", "male");

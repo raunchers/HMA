@@ -25,10 +25,11 @@
     $ethnicity = $surAnswers->{'ethnicity'};
     $heard = "Other";
     $member = $surAnswers->{'member'};
+    $email = $surAnswers->{'email'};
 
     //SQL Query to insert data.
-    $stmt = "INSERT INTO guest (GUEST_FIRST_NAME,GUEST_LAST_NAME,GUEST_ZIP_CODE,GUEST_ETHNICITY,GUEST_HEARD,GUEST_MEMBER) 
-    VALUES('$firstName','$lastName','$zip','$ethnicity','$heard','$member')"; //variables go here
+    $stmt = "INSERT INTO guest (GUEST_FIRST_NAME,GUEST_LAST_NAME,GUEST_ZIP_CODE,GUEST_ETHNICITY,GUEST_HEARD,GUEST_MEMBER,GUEST_EMAIL) 
+    VALUES('$firstName','$lastName','$zip','$ethnicity','$heard','$member','$email')"; //variables go here
     mysqli_query($conn,$stmt);
     mysqli_close($conn);
 

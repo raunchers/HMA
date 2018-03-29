@@ -5,14 +5,20 @@
         <title>Guest Ethnicity</title>
     </head>
     <body>
-
+        <p>Please select your ethnicity.</p>
         <form>
-            <input type="radio" id="guest_ethnicity_white" value="White">
-            <input type="radio" id="guest_ethnicity_african_american" value="African American">
-            <input type="radio" id="guest_ethnicity_asian" value="Asian">
-            <input type="radio" id="guest_ethnicity_american_indian" value="American Indian">
-            <input type="radio" id="guest_ethnicity_other" value="Other">
-            <input type="radio" id="guest_ethnicity_unspecified" value="Prefer not to say">
+            <label for="white">White</label>
+            <input type="radio" name="white" id="guest_ethnicity_white" value="White">
+            <label for="africanA">African American</label>
+            <input type="radio" name="africanA" id="guest_ethnicity_african_american" value="African American">
+            <label for="asian">Asian</label>
+            <input type="radio" name="asian" id="guest_ethnicity_asian" value="Asian">
+            <label for="americanI">American Indian</label>
+            <input type="radio" name="americanI" id="guest_ethnicity_american_indian" value="American Indian">
+            <label for="other">Other</label>
+            <input type="radio" name="other" id="guest_ethnicity_other" value="Other">
+            <label for="notS">Unspecified</label>
+            <input type="radio" name="notS" id="guest_ethnicity_unspecified" value="Prefer not to say">
         </form>
         <input type="button" id="guest_ethnicity" value="previous" onclick="previousPage(this.id)">
         <input type="button" id="guest_ethnicity" value="next" onclick="nextPage(this.id)">

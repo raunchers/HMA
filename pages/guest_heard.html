@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <script src="../scripts/buttons.js"></script>
+        <title>Guest Ethnicity</title>
+        <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.3.1.min.js"></script>
+    </head>
+    <body>
+        <p>Please select your ethnicity.</p>
+        <form>
+            <label for="internet">Internet</label>
+            <input type="radio" name="internet" id="guest_internet" value="Internet">
+            <label for="newsAd">Newspaper Ad</label>
+            <input type="radio" name="newsAD" id="guest_news_ad" value="Newspaper Ad">
+            <label for="frAFAM">Friends and Family</label>
+            <input type="radio" name="frAFAM" id="guest_friends_family" value="Friends and Family">
+            <label for="other">Other</label>
+            <input type="radio" name="other" id="guest_other" value="Other">
+        </form>
+        <input type="button" id="guest_heard" value="previous" onclick="previousPage(this.id)">
+        <input type="button" id="guest_heard" value="next" onclick="nextPage(this.id)">
+    </body>
+</html>

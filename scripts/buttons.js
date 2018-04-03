@@ -55,14 +55,24 @@ function nextPage(clicked_id){
             } else{
                 localStorage.setItem("guest_member","N");
                 localStorage.setItem("guest_email", "unspecified@gmail.com");
-                setDB();
+                window.location = "guest_heard.html";
             }
-            //window.location = "guest_thank_you.html";
             break;
         case "guest_email":
-            localStorage.setItem("guest_email", document.getElementById("guest_email").value);
+            localStorage.setItem("guest_email", document.getElementById("guest_email_answer").value);
+            window.location = "guest_heard.html";
+            break;
+        case "guest_heard":
+            if(document.getElementById("guest_internet").checked == true){
+                localStorage.setItem("guest_heard", "Internet");
+            }else if(document.getElementById("guest_news_ad").checked == true){
+                localStorage.setItem("guest_heard", "Newspaper Ad");
+            }else if(document.getElementById("guest_friends_family").checked == true){
+                localStorage.setItem("guest_heard", "Friends and family");
+            }else{
+                localStorage.setItem("guest_heard", "Other");
+            }
             setDB();
-            window.location = "guest_thank_you.html";
             break;
     }
 }
@@ -91,6 +101,9 @@ function previousPage(clicked_id){
         case "guest_email":
             window.location = "guest_member.html";
             break;
+        case "guest_heard":
+            window.location = "guest_email.html";
+            break;
     }
 }
 
@@ -99,13 +112,17 @@ function setDB(){
     //JS obj of survey answers
     var surveyObj = {};
         surveyObj ={firstN: localStorage.getItem("guest_first_name"), lastN: localStorage.getItem("guest_last_name"), gender: localStorage.getItem("guest_gender"),
-                    email: localStorage.getItem("guest_email"), zip: localStorage.getItem("guest_zip_code"), ethnicity: localStorage.getItem("guest_ethnicity"), 
-                    member: localStorage.getItem("guest_member")};
+                    email: localStorage.getItem("guest_email"), heard: localStorage.getItem("guest_heard"), zip: localStorage.getItem("guest_zip_code"), 
+                    ethnicity: localStorage.getItem("guest_ethnicity"), member: localStorage.getItem("guest_member")};
     //Send to PHP
     $.ajax({
         url: '../includes/dbh.php',
         type: 'post',
-        data: {"answers" : JSON.stringify(surveyObj)}
+        data: {"answers" : JSON.stringify(surveyObj)},
+        success: function(){
+            window.location = "guest_thank_you.html";
+        }
     });
     console.log(surveyObj);
+    
 }

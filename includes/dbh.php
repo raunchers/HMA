@@ -23,16 +23,14 @@
     $email = $surAnswers->{'email'};
     $zip = $surAnswers->{'zip'};
     $ethnicity = $surAnswers->{'ethnicity'};
-    $heard = "Other";
+    $heard = $surAnswers->{'heard'};
     $member = $surAnswers->{'member'};
     $email = $surAnswers->{'email'};
 
     //SQL Query to insert data.
-    $stmt = "INSERT INTO guest (GUEST_FIRST_NAME,GUEST_LAST_NAME,GUEST_ZIP_CODE,GUEST_ETHNICITY,GUEST_HEARD,GUEST_MEMBER,GUEST_EMAIL) 
-    VALUES('$firstName','$lastName','$zip','$ethnicity','$heard','$member','$email')"; //variables go here
+    $stmt = "INSERT INTO guest (GUEST_FIRST_NAME,GUEST_LAST_NAME,GUEST_GENDER,GUEST_ETHNICITY,GUEST_ZIP_CODE,GUEST_MEMBER,GUEST_EMAIL,GUEST_HEARD) 
+    VALUES('$firstName','$lastName','$gender','$ethnicity','$zip','$member','$email','$heard')"; //variables go here
     mysqli_query($conn,$stmt);
     mysqli_close($conn);
-
-    //,'$gender','$email'
     
 ?>

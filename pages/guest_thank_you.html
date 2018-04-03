@@ -5,7 +5,10 @@
         <title>Guest Thank You</title>
     </head>
     <body>
-        <input type="button" id="guest_thank_you" value="previous" onclick="previousPage(this.id)">
-        <input type="button" id="guest_thank_you" value="next" onclick="nextPage(this.id)">
+        <p>Thank you message.</p>
+        <script>setTimeout(function(){
+            localStorage.clear();
+            window.location.href='../index.html'
+            },5000);</script>
     </body>
 </html>

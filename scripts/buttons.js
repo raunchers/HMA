@@ -31,6 +31,21 @@ function nextPage(clicked_id){
             break;
         case "guest_zip_code":
             localStorage.setItem("guest_zip_code", document.getElementById("guest_zip_code_answer").value);
+            window.location = "guest_party_size.html";
+            break;
+        case "guest_party_size":
+        //If statements are failing
+        //Saves adult info to localstorage but does not store child and does not switch pages
+            if(document.getElementById("guest_adult_count").value == ""){
+                localStorage.setItem("guest_adult_count", "1");
+            }else{
+                localStorage.setItem("guest_adult_count", document.getElementById("guest_adult_count").value);
+            }
+            if(document.getElementById("guest_child_count").value == ""){
+                localStorage.setItem("guest_child_count", "0");
+            }else{
+                localStorage.setItem("guest_child_count", document.getElementById("guest_child_count").value);
+            }
             window.location = "guest_ethnicity.html";
             break;
         case "guest_ethnicity":
@@ -74,7 +89,11 @@ function nextPage(clicked_id){
             }
             setDB();
             break;
-    }
+        case "org_name":
+            break;
+        case "org_party_size":
+            break;
+    } //End switch
 }
 
 function previousPage(clicked_id){
@@ -104,6 +123,10 @@ function previousPage(clicked_id){
         case "guest_heard":
             window.location = "guest_email.html";
             break;
+        case "org_name":
+            break;
+        case "org_party_size":
+            break;
     }
 }
 
@@ -113,7 +136,8 @@ function setDB(){
     var surveyObj = {};
         surveyObj ={firstN: localStorage.getItem("guest_first_name"), lastN: localStorage.getItem("guest_last_name"), gender: localStorage.getItem("guest_gender"),
                     email: localStorage.getItem("guest_email"), heard: localStorage.getItem("guest_heard"), zip: localStorage.getItem("guest_zip_code"), 
-                    ethnicity: localStorage.getItem("guest_ethnicity"), member: localStorage.getItem("guest_member")};
+                    adult: localStorage.getItem("guest_adult_count"), child: localStorage.getItem("guest_child_count") , ethnicity: localStorage.getItem("guest_ethnicity"), 
+                    member: localStorage.getItem("guest_member")};
     //Send to PHP
     $.ajax({
         url: '../includes/dbh.php',

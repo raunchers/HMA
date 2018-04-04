@@ -1,6 +1,6 @@
 create table guest(
-    GUEST_ID int(1000000) not null PRIMARY KEY AUTO_INCREMENT,
-    GUEST_FIRST_NAME varchar(100) not null,
+    GUEST_ID int(255) not null PRIMARY KEY AUTO_INCREMENT,
+    GUEST_FIRST_NAME varchar(20) not null,
     GUEST_LAST_NAME varchar(20) not null,
     GUEST_GENDER varchar(10) not null,
     GUEST_ETHNICITY varchar(20) not null,
@@ -14,10 +14,10 @@ create table guest(
 );
 
 create table org(
-    ORG_ID int(20) not null PRIMARY KEY AUTO_INCREMENT,
+    ORG_ID int(255) not null PRIMARY KEY AUTO_INCREMENT,
     ORG_NAME varchar(100) not null,
-    ORG_ADULT_COUNT varchar(10) not null,
-    ORG_CHILD_COUNT varchar(10) not null,
+    ORG_ADULT_COUNT varchar(100) not null,
+    ORG_CHILD_COUNT varchar(100 ) not null,
     ORG_ZIP_CODE varchar(10) not null,
     ORG_DATE date not null
 );

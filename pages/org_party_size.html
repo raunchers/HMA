@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+		<script src="../scripts/buttons.js"></script>
+		<script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.3.1.min.js"></script>
+        <title>Guest Name</title>
+    </head>
+    <body>
+        <div class="questions">
+			<p>Please enter the number of adults (aged 18 years and older) and children (younger 
+                than 18) in your party.</p>
+			<div class="adultCount">
+				<label for="adults">Adults<br></label>
+				<input type="text" name="adults" id="org_adult_count" placeholder="1">
+			</div>
+			<div class="childCount">
+				<label for="children">Children<br></label>
+				<input type="text" name="children" id="org_child_count" placeholder="0">
+			</div>
+			<div class="buttons">
+				<div class="nextButton">
+					<input type="button" id="org_party_size" value="previous" onclick="previousPage(this.id)">
+				</div>
+				<div class="pageCount">
+					<p>1/10</p>
+				</div>
+				<div class="prevButton">
+					<input type="button" id="org_party_size" value="next" onclick="nextPage(this.id)">
+				</div>
+			</div>
+		</div>
+    </body>
+</html>

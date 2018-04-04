@@ -16,9 +16,6 @@ function nextPage(clicked_id){
             localStorage.setItem("guest_last_name", document.getElementById("guest_last_name").value);
             window.location = "guest_gender.html";
             break;
-        case "org_name":
-            localStorage.setItem("org_name", document.getElementById("org_name").value);
-            break;
         case "guest_gender":
             if(document.getElementById("guest_sex_male").checked == true){
                 localStorage.setItem("guest_gender", "male");
@@ -34,8 +31,6 @@ function nextPage(clicked_id){
             window.location = "guest_party_size.html";
             break;
         case "guest_party_size":
-        //If statements are failing
-        //Saves adult info to localstorage but does not store child and does not switch pages
             if(document.getElementById("guest_adult_count").value == ""){
                 localStorage.setItem("guest_adult_count", "1");
             }else{
@@ -90,8 +85,25 @@ function nextPage(clicked_id){
             setDB();
             break;
         case "org_name":
+            localStorage.setItem("org_name", document.getElementById("org_name_answer").value);
+            window.location = "org_zip_code.html";
+            break;
+        case "org_zip_code":
+            localStorage.setItem("org_zip_code", document.getElementById("org_zip_code_answer").value);
+            window.location = "org_party_size.html";
             break;
         case "org_party_size":
+            if(document.getElementById("org_adult_count").value == ""){
+                localStorage.setItem("org_adult_count", "1");
+            }else{
+                localStorage.setItem("org_adult_count", document.getElementById("org_adult_count").value);
+            }
+            if(document.getElementById("org_child_count").value == ""){
+                localStorage.setItem("org_child_count", "0");
+            }else{
+                localStorage.setItem("org_child_count", document.getElementById("org_child_count").value);
+            }
+            setORGDB();
             break;
     } //End switch
 }
@@ -111,8 +123,11 @@ function previousPage(clicked_id){
         case "guest_zip_code":
             window.location = "guest_gender.html";
             break;
-        case "guest_ethnicity":
+        case "guest_party_size":
             window.location = "guest_zip_code.html";
+            break;
+        case "guest_ethnicity":
+            window.location = "guest_party_size.html";
             break;
         case "guest_member":
             window.location = "guest_ethnicity.html";
@@ -124,8 +139,14 @@ function previousPage(clicked_id){
             window.location = "guest_email.html";
             break;
         case "org_name":
+            localStorage.clear();
+            window.location = "../index.html";
+            break;
+        case "org_zip_code":
+            window.location = "org_name.html";
             break;
         case "org_party_size":
+            window.location = "org_zip_code.html";
             break;
     }
 }
@@ -149,4 +170,21 @@ function setDB(){
     });
     console.log(surveyObj);
     
+}
+
+function setORGDB(){
+    //JS obj of survey answers
+    var surveyObj = {};
+        surveyObj ={orgN: localStorage.getItem("org_name"), orgZip: localStorage.getItem("org_zip_code"), 
+        orgAdult: localStorage.getItem("org_adult_count"), orgChild: localStorage.getItem("org_child_count")};
+    //Send to PHP
+    $.ajax({
+        url: '../includes/orgDBH.php',
+        type: 'post',
+        data: { "answers": JSON.stringify(surveyObj) },
+        success: function () {
+            window.location = "guest_thank_you.html";
+        }
+    });
+    console.log(surveyObj);
 }

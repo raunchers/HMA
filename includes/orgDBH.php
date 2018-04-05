@@ -19,8 +19,8 @@
     //Get JSON data to PHP
     $orgName = $surAnswers->{'orgN'};
     $orgZip = $surAnswers->{'orgZip'};
-    $orgAdult = $surAnswers->{'orgAdult'};
-    $orgChild = $surAnswers->{'orgChild'};
+    $orgAdult = (int) $surAnswers->{'orgAdult'};
+    $orgChild = (int) $surAnswers->{'orgChild'};
 
     //SQL Query to insert data.
     $stmt = "INSERT INTO org (ORG_NAME,ORG_ADULT_COUNT,ORG_CHILD_COUNT,ORG_ZIP_CODE) 

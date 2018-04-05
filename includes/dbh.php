@@ -22,8 +22,8 @@
     $gender = $surAnswers->{'gender'};
     $email = $surAnswers->{'email'};
     $zip = $surAnswers->{'zip'};
-    $adult = $surAnswers->{'adult'};
-    $child = $surAnswers->{'child'};
+    $adult =(int) $surAnswers->{'adult'}; //Type cast to int for DB
+    $child = (int) $surAnswers->{'child'}; //Type cast to int for DB
     $ethnicity = $surAnswers->{'ethnicity'};
     $heard = $surAnswers->{'heard'};
     $member = $surAnswers->{'member'};

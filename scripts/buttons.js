@@ -1,7 +1,3 @@
-/*  Will use local storage to store the information from the survey. 
-    The end of the survey will commit the answers to the DB  */
-
-    /* create clear and display button on thank you page for testing */
 function nextPage(clicked_id){
     /* Create switch statement to act as phone book
         Will pull id of current button name that was clicked

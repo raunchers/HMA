@@ -1,14 +1,31 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <script src="../scripts/buttons.js"></script>
-        <title>Guest Zip Code</title>
-    </head>
-    <body>
-        <p>Please enter your zipcode.</p>
-        <label for="zip">Zip Code</label>
-        <input type="text" name="zip" id="org_zip_code_answer" placeholder="Prefer not to say">
-        <input type="button" id="org_zip_code" value="previous" onclick="previousPage(this.id)">
-        <input type="button" id="org_zip_code" value="next" onclick="nextPage(this.id)">
-    </body>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <script src="../scripts/buttons.js"></script>
+</head>
+<body class="w3-dark-gray">
+    <div class="w3-display-container w3-round w3-display-middle w3-half w3-margin-top w3-light-grey">
+        <div class="w3-bar w3-round w3-border w3-large" style="background-color:#3b0202; color: white;">
+            <a href="../index.html" class="w3-bar-item w3-button w3-padding-5">Home</a>
+        </div>
+        <form class="w3-container w3-card-4">
+            <p>
+                <label> Organization's zip code</label>
+                <input type="text" id="org_zip_code_answer" class="w3-input w3-border w3-round w3-light-grey" placeholder="28601" style="width: 100%;">
+            </p>
+            <div class="w3-bar w3-padding-small">
+                <input type="button" class="w3-button w3-left w3-round w3-large" id="org_zip_code" value="Back" onclick="previousPage(this.id)" style="background-color:#3b0202; color:white;">
+                <input type="button" class="w3-button w3-right w3-round w3-large" id="org_zip_code" value="Next" onclick="nextPage(this.id)" style="background-color:#3b0202; color:white;">
+            </div>
+            <div class="w3-padding">
+                <div class="w3-container w3-round" style="height:24px; width:70%; background-color:#3b0202; color: white;">70%</div>
+            </div>
+        </form>
+    </div>
+</body>
 </html>
+

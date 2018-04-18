@@ -1,20 +1,45 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <script src="../scripts/buttons.js"></script>
-        <title>Guest Gender</title>
-    </head>
-    <body>
-        <p>Please enter your gender.</p>
-        <form>
-            <label for="male">Male</label>
-            <input type="radio" name="gender" id="guest_sex_male" value="Male" onclick"isChecked(this.id)">
-            <label for="male">Female</label>
-            <input type="radio" name="gender" id="guest_sex_female" value="Female" onclick"isChecked(this.id)">
-            <label for="male">Unspecified</label>
-            <input type="radio" name="gender" id="guest_sex_unspecified" value="Prefer not to say" onclick"isChecked(this.id)">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <script src="../scripts/buttons.js"></script>
+    <title>Document</title>
+</head>
+<body class="w3-dark-gray">
+    <div class="w3-display-container w3-round w3-display-middle w3-half w3-margin-top w3-light-grey">
+        <div class="w3-bar w3-round w3-border w3-large" style="background-color:#3b0202; color: white;">
+            <a href="#" class="w3-bar-item w3-button w3-padding-5">Home</a>
+        </div>
+        <form class="w3-container w3-card-4">
+            <div class="w3-row-padding">
+                <div class="w3-bar w3-padding-small w3-xlarge">
+                    <div class="w3-half">
+                        <p>
+                            <input class="w3-radio" type="radio" name="gender" id="guest_sex_male" value="Male" onclick"isChecked(this.id)">
+                            <label for="male">Male</label>
+                        </p>
+                        <p>
+                            <input class="w3-radio" type="radio" name="gender" id="guest_sex_female" value="Female" onclick"isChecked(this.id)">
+                            <label for="male">Female</label>
+                        </p>
+                        <p>
+                            <input type="radio" name="gender" id="guest_sex_unspecified" value="Prefer not to say" onclick"isChecked(this.id)">
+                            <label for="male">Unspecified</label>
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="w3-bar w3-padding-small">
+                <input type="button" class="w3-button w3-left w3-round w3-large" id="guest_gender" value="Back" onclick="previousPage(this.id)" style="background-color:#3b0202; color:white;">
+                <input type="button" class="w3-button w3-right w3-round w3-large" id="guest_gender" value="Next" onclick="nextPage(this.id)" style="background-color:#3b0202; color:white;">
+            </div>
+            <div class="w3-padding">
+                <div class="w3-container w3-round" style="height:24px; width:10%; background-color:#3b0202; color: white;">10%</div>
+            </div>
         </form>
-        <input type="button" id="guest_gender" value="previous" onclick="previousPage(this.id)">
-        <input type="button" id="guest_gender" value="next" onclick="nextPage(this.id)">
-    </body>
+    </div>
+</body>
 </html>

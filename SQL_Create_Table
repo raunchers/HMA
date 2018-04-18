@@ -39,3 +39,10 @@ WHERE id='3'
 
 SELECT * FROM users
 ORDER BY id ASC
+
+<input type="radio" name="gender" id="guest_sex_male" value="Male" onclick"isChecked(this.id)">
+<label for="male">Male</label>
+<input type="radio" name="gender" id="guest_sex_female" value="Female" onclick"isChecked(this.id)">
+<label for="male">Female</label>
+<input type="radio" name="gender" id="guest_sex_unspecified" value="Prefer not to say" onclick"isChecked(this.id)">
+<label for="male">Unspecified</label>

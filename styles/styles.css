@@ -1,3 +1,24 @@
-body{
-    
+*{
+    font-family: 'Gill Sans MT';
+}
+
+.w3-button.w3-left.w3-round.w3-large{
+    background-color:#3b0202; 
+    color:white;
+}
+
+.w3-button.w3-right.w3-round.w3-large{
+    background-color:#3b0202; 
+    color:white;
+}
+
+#pBar{
+    height:24px; 
+    background-color:#3b0202; 
+    color: white;
+}
+
+#cHead{
+    background-color:#3b0202; 
+    color: white;
 }

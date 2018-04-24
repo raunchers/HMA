@@ -57,11 +57,11 @@ function nextPage(clicked_id){
             //Call function that reads localstorage, sets the values to variables in PHP and then commits to the DB
             if (document.getElementById("guest_member_yes").checked == true){
                 localStorage.setItem("guest_member","Y");
-                window.location = "guest_email.html";
-            } else{
-                localStorage.setItem("guest_member","N");
                 localStorage.setItem("guest_email", "unspecified@gmail.com");
                 window.location = "guest_heard.html";
+            } else{
+                localStorage.setItem("guest_member","N");
+                window.location = "guest_email.html";
             }
             break;
         case "guest_email":
